@@ -248,7 +248,9 @@ cp ${SRC_WS}/${MIP}/.project  ${TGT_WS}/${MIP}
 cp ${SRC_WS}/${MIP}/.wrproject  ${TGT_WS}/${MIP}
 cp ${SRC_WS}/${MIP}/${MIP}.wpj  ${TGT_WS}/${MIP}
 cp ${SRC_WS}/${MIP}/Makefile  ${TGT_WS}/${MIP}
-cp ${SRC_WS}/${MIP}/*.sed  ${TGT_WS}/${MIP}
+
+# replace the absolute path from the wpj file with the $(PRJ_DIR) workbench variable
+sed -i s#${SRC_WS}#'$(PRJ_DIR)'#g ${TGT_WS}/${MIP}/${MIP}.wpj
 
 # The _defs.mos.mk file has an embedded path that must be changed for your final build location.
 echo NOTE: You must edit the file ${MIP}/_defs.mos.mk and replace 'CHANGEME' with the Project Directory Path
