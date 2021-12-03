@@ -41,7 +41,6 @@ print_usage_exit() {
 
 }
 
-
 # check parameters
 if [ "$#" != 2 ]; then
     print_usage_exit
@@ -52,6 +51,11 @@ export PROJ_NAME=$1
 export SRC_WS=$2
 export TGT_WS=$(pwd)
 
+echo -------------
+echo $PROJ_NAME
+echo $SRC_WS
+echo $TGT_WS
+echo -------------
 
 if [ ! -d $TGT_WS/$PROJ_NAME-hypervisor ]; then
 
@@ -88,4 +92,22 @@ do
     echo updating $each
     sed -i s#$SRC_WS#$TGT_WS#g $each
 done
+
+for each in $(find $TGT_WS -name "*.xml")
+do 
+    echo updating $each
+    sed -i s#$SRC_WS#$TGT_WS#g $each
+done
+
+echo -e '\n\n\n'
+echo Done. 
+echo -------------------------------------------------------
+echo Now open the workspace $TGT_WS in HVP SR0640. 
+echo No files will appear so you must import the workspace 
+echo -e '\n\t' Import-\>General-\>Existing Projects into Workspace
+echo
+echo After importing, you should see the hypervisor and guest Projects
+echo Build the GOS VSB and VIP and then Build/Rebuild the hypervisor project
+echo -------------------------------------------------------
+
 
