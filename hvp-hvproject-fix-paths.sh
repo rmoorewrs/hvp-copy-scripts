@@ -50,7 +50,7 @@ fi
 # set parameters
 export PROJ_NAME=$1
 export SRC_WS=$2
-export TGT_WS=$(PWD)
+export TGT_WS=$(pwd)
 
 
 if [ ! -d $TGT_WS/$PROJ_NAME-hypervisor ]; then
