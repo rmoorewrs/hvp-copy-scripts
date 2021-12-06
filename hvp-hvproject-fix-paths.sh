@@ -27,12 +27,13 @@ export VIP_GOS01_BSP=${DEFAULT_BSP}
 
 print_usage_exit() {
 
+    echo -----------------------------------------------------------
     echo Usage: 
-    echo -e '\t' $0 \<projname\>  \<original-absolute-path\> 
+    echo -e '\n' $0 \<projname\>  \<original-absolute-path\> 
     echo
     echo Notes:
     echo - Must be run from top level project directory of copied project
-    echo - projname is the part before `-hypervisor`
+    echo - projname is the part before '-hypervisor'
     echo - no trailing \/ on the paths
     echo - Source path can be found in first line of \<proj_dir\>\/projname-hypervisor\/deps.romfs.mk
     
